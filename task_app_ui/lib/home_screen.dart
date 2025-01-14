@@ -13,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int myindex = 0;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -50,6 +51,33 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             PersonalTasks(),
           ],
+        ),
+        bottomNavigationBar: ClipRRect(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(10),
+            topRight: Radius.circular(10),
+          ),
+          child: BottomNavigationBar(
+              selectedItemColor: Colors.white,
+              backgroundColor: Colors.indigo[600],
+              onTap: (index) {
+                setState(() {
+                  myindex = index;
+                });
+              },
+              currentIndex: myindex,
+              items: [
+                BottomNavigationBarItem(
+                    label: 'Home',
+                    icon: Icon(
+                      Icons.home_filled,
+                    )),
+                BottomNavigationBarItem(
+                    label: 'Task',
+                    icon: Icon(
+                      Icons.task,
+                    )),
+              ]),
         ),
       ),
     );
