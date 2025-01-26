@@ -31,8 +31,10 @@ class _HorizontallistState extends State<Horizontallist> {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return SizedBox(
-      height: 150,
+      height: screenHeight * 0.2, //150,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 5,
@@ -42,13 +44,13 @@ class _HorizontallistState extends State<Horizontallist> {
               Opacity(
                 opacity: 0.7,
                 child: Container(
-                  margin: EdgeInsets.only(left: 13),
-                  height: 120,
-                  width: 85,
+                  margin: EdgeInsets.only(left: screenWidth * 0.03), //13
+                  height: screenHeight * 0.15, //120,
+                  width: screenWidth * 0.2, //85,
                   child: Column(
                     children: [
                       SizedBox(
-                        height: 70,
+                        height: screenHeight * 0.08, //70,
                       ),
                       Text(
                         textlist[index],
@@ -61,7 +63,7 @@ class _HorizontallistState extends State<Horizontallist> {
                   ),
                   decoration: BoxDecoration(
                       color: getrandomcolor(),
-                      borderRadius: BorderRadius.circular(10)),
+                      borderRadius: BorderRadius.circular(10)), //10
                 ),
               ),
             ],

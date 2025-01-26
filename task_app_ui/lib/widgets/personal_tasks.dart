@@ -28,27 +28,29 @@ class _PersonalTasksState extends State<PersonalTasks> {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.025), //10
         child: SizedBox(
-          height: 180,
+          height: screenHeight * 0.25, //180,
           child: ListView.builder(
             itemCount: 3,
             itemBuilder: (context, index) {
               return Container(
-                margin: EdgeInsets.only(bottom: 10),
+                margin: EdgeInsets.only(bottom: screenHeight * 0.01), //10
                 child: Row(
                   children: [
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 8),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: screenWidth * 0.02), //8
                       child: CircleAvatar(
-                        radius: 8,
+                        radius: screenWidth * 0.008,
                         backgroundColor: getrandomcolor(),
                       ),
                     ),
-                    SizedBox(
-                      width: 8,
-                    ),
+                    SizedBox(width: screenWidth * 0.02 //8,
+                        ),
                     Text(
                       textlist[index],
                       style: TextStyle(
@@ -61,12 +63,11 @@ class _PersonalTasksState extends State<PersonalTasks> {
                       color: Colors.grey[700],
                       size: 16,
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
+                    SizedBox(width: screenWidth * 0.02 // 5,
+                        ),
                   ],
                 ),
-                height: 50,
+                height: screenHeight * 0.07,
                 width: double.infinity,
                 decoration: BoxDecoration(
                     color: Colors.grey[350],
